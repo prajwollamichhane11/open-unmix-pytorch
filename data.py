@@ -403,7 +403,7 @@ class SourceFolderDataset(torch.utils.data.Dataset):
                 if self.seq_duration is not None:
                     info = load_info(source_track_path)
                     # get minimum duration of track
-                    if info['duration'] > self.seq_duration:
+                    if info['duration'] >= self.seq_duration:
                         tracks.append(source_track_path)
                 else:
                     tracks.append(source_track_path)

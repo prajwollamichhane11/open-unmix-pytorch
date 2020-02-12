@@ -98,13 +98,13 @@ def main():
     parser.add_argument('--model', type=str, help='Path to checkpoint folder')
 
     # Trainig Parameters
-    parser.add_argument('--epochs', type=int, default=1000)
-    parser.add_argument('--batch-size', type=int, default=16)
+    parser.add_argument('--epochs', type=int, default=100)
+    parser.add_argument('--batch-size', type=int, default=32)
     parser.add_argument('--lr', type=float, default=0.001,
                         help='learning rate, defaults to 1e-3')
     parser.add_argument('--patience', type=int, default=140,
                         help='maximum number of epochs to train (default: 140)')
-    parser.add_argument('--lr-decay-patience', type=int, default=80,
+    parser.add_argument('--lr-decay-patience', type=int, default=50,
                         help='lr decay patience for plateau scheduler')
     parser.add_argument('--lr-decay-gamma', type=float, default=0.3,
                         help='gamma of learning rate scheduler decay')
@@ -114,22 +114,22 @@ def main():
                         help='random seed (default: 42)')
 
     # Model Parameters
-    parser.add_argument('--seq-dur', type=float, default=6.0,
+    parser.add_argument('--seq-dur', type=float, default=5.0,
                         help='Sequence duration in seconds'
                         'value of <=0.0 will use full/variable length')
     parser.add_argument('--unidirectional', action='store_true', default=False,
                         help='Use unidirectional LSTM instead of bidirectional')
-    parser.add_argument('--nfft', type=int, default=4096,
+    parser.add_argument('--nfft', type=int, default=512,
                         help='STFT fft size and window size')
-    parser.add_argument('--nhop', type=int, default=1024,
+    parser.add_argument('--nhop', type=int, default=160,
                         help='STFT hop size')
     parser.add_argument('--hidden-size', type=int, default=512,
                         help='hidden size parameter of dense bottleneck layers')
     parser.add_argument('--bandwidth', type=int, default=16000,
                         help='maximum model bandwidth in herz')
-    parser.add_argument('--nb-channels', type=int, default=2,
+    parser.add_argument('--nb-channels', type=int, default=1,
                         help='set number of channels for model (1, 2)')
-    parser.add_argument('--nb-workers', type=int, default=0,
+    parser.add_argument('--nb-workers', type=int, default=3,
                         help='Number of workers for dataloader.')
 
     # Misc Parameters
